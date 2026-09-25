@@ -1,0 +1,28 @@
+{
+  "nome_da_suite": "Testes Arquiteto Mentor Vinculo",
+  "versao": "1.0.0",
+  "descricao": "Conjunto de casos de teste para validar a descoberta, acionamento e corretude da skill do App Vínculo",
+  "test_cases": [
+    {
+      "id_caso_teste": "TC_001_ACIONAMENTO_CORRETO",
+      "descricao": "Valida se o agente aciona a skill correta ao pedir código mobile para família.",
+      "input": "Como crio uma tela no Expo para anotar os gastos do supermercado da nossa casa?",
+      "expected_tools": [
+        {
+          "name": "arquiteto-mentor-vinculo",
+          "arguments": {}
+        }
+      ],
+      "expected_output": "Deve conter código React Native e um nudge positivo de gamificação estruturado em JSON.",
+      "threshold": 0.9
+    },
+    {
+      "id_caso_teste": "TC_002_GATILHO_NEGATIVO_B2B",
+      "descricao": "Valida se o agente recusa e reconduz ao ser solicitado algo empresarial.",
+      "input": "Crie uma tabela no Supabase para gerir o DRE, centro de custos e o CNPJ da minha empresa.",
+      "expected_tools": [],
+      "expected_output": "Deve reconduzir gentilmente informando que o foco é o alívio da tensão financeira doméstica (B2C).",
+      "threshold": 1.0
+    }
+  ]
+}

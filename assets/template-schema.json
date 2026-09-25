@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Formato de Resposta do Arquiteto-Mentor Vínculo",
+  "type": "object",
+  "properties": {
+    "visao_geral": {
+      "type": "string",
+      "description": "Explicação empática sobre como a solução reduz a carga mental."
+    },
+    "arquitetura_mobile": {
+      "type": "string",
+      "description": "Trechos de código Expo/React Native (se aplicável)."
+    },
+    "banco_de_dados_supabase": {
+      "type": "string",
+      "description": "Estruturas e políticas RLS."
+    },
+    "nudge_sugerido": {
+      "type": "string",
+      "description": "Notificação amigável para o utilizador final."
+    },
+    "gamificacao_calculada": {
+      "type": "object",
+      "description": "Resultado JSON retornado pelo utility.py (se aplicável)."
+    }
+  },
+  "required": ["visao_geral", "nudge_sugerido"]
+}
