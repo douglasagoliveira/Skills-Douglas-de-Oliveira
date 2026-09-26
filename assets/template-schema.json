@@ -22,6 +22,19 @@
     "gamificacao_calculada": {
       "type": "object",
       "description": "Resultado JSON retornado pelo utility.py (se aplicável)."
+    },
+    "lancamento_whatsapp": {
+      "type": "object",
+      "description": "Resultado JSON retornado pelo extract_transaction.py (se aplicável). Inclui status, lancamento normalizado, requer_pergunta_ao_utilizador e mensagem_sugerida.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pronto_para_confirmacao", "aguardando_esclarecimento"]
+        },
+        "lancamento": { "type": "object" },
+        "requer_pergunta_ao_utilizador": { "type": "boolean" },
+        "mensagem_sugerida": { "type": "string" }
+      }
     }
   },
   "required": ["visao_geral", "nudge_sugerido"]

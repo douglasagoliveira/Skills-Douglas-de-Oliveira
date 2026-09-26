@@ -6,6 +6,8 @@
 - [3. Regras de Gamificação e Carga Mental](#3-regras-de-gamificação-e-carga-mental)
 - [4. Exemplos de Nudges Comportamentais](#4-exemplos-de-nudges-comportamentais)
 
+> Para o pipeline de captura de lançamentos via WhatsApp (áudio, imagem, documento), ver `references/whatsapp-ingestion.md`.
+
 ---
 
 ## 1. Visão Geral do Domínio
@@ -21,6 +23,9 @@ Plataforma B2C focada em famílias. Transforma a gestão financeira de um peso p
 | `id` | `UUID` | Sim | Chave primária. |
 | `family_id` | `UUID` | Sim | RLS usa este campo para isolamento de dados: `auth.uid()` deve pertencer a esta família. |
 | `amount` | `Decimal` | Sim | Valor da transação. |
+| `origem` | `Enum` | Sim | `manual` \| `audio` \| `imagem` \| `documento`. Ver `references/whatsapp-ingestion.md` para o pipeline das três últimas. |
+| `hash_dedup` | `String` | Não | Preenchido apenas quando `origem` != `manual`. Usado para detectar reenvios duplicados de comprovantes. |
+| `autor_id` | `UUID` | Sim | Membro do casal que originou o lançamento. RLS também restringe por este campo quando `compartilhado = false`. |
 
 ---
 

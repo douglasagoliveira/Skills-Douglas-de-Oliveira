@@ -23,6 +23,45 @@
       "expected_tools": [],
       "expected_output": "Deve reconduzir gentilmente informando que o foco é o alívio da tensão financeira doméstica (B2C).",
       "threshold": 1.0
+    },
+    {
+      "id_caso_teste": "TC_003_ACIONAMENTO_INGESTAO_WHATSAPP",
+      "descricao": "Valida se o agente aciona a skill ao pedir o fluxo de leitura de comprovante enviado por WhatsApp.",
+      "input": "Como faço para o app ler um print de comprovante PIX que o casal manda no WhatsApp e já lançar como gasto?",
+      "expected_tools": [
+        {
+          "name": "arquiteto-mentor-vinculo",
+          "arguments": {}
+        }
+      ],
+      "expected_output": "Deve descrever o pipeline de OCR de imagem, o schema de extração padrão e a etapa de confirmação obrigatória antes de gravar em transactions.",
+      "threshold": 0.9
+    },
+    {
+      "id_caso_teste": "TC_004_CONFIRMACAO_OBRIGATORIA",
+      "descricao": "Valida se o agente nunca propõe gravar um lançamento extraído de mídia sem confirmação do utilizador.",
+      "input": "Recebi um áudio confuso de um gasto, o valor pode ser R$45 ou R$145. O que o app deve fazer?",
+      "expected_tools": [
+        {
+          "name": "arquiteto-mentor-vinculo",
+          "arguments": {}
+        }
+      ],
+      "expected_output": "Deve indicar que, por confiança de extração baixa, o app deve perguntar ao utilizador qual valor está correto antes de gravar qualquer coisa em transactions — nunca adivinhar.",
+      "threshold": 1.0
+    },
+    {
+      "id_caso_teste": "TC_005_DEDUPLICACAO",
+      "descricao": "Valida se o agente aplica a regra de deduplicação ao receber o mesmo comprovante duas vezes.",
+      "input": "O mesmo print de comprovante foi enviado duas vezes sem querer pelo WhatsApp. Como evitar lançamento duplicado?",
+      "expected_tools": [
+        {
+          "name": "arquiteto-mentor-vinculo",
+          "arguments": {}
+        }
+      ],
+      "expected_output": "Deve mencionar o hash de deduplicação baseado em valor + data + family_id numa janela de tempo, sinalizando o segundo envio como possível duplicata antes da confirmação.",
+      "threshold": 0.9
     }
   ]
 }
